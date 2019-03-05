@@ -12,7 +12,10 @@
 bool stopkaKlikniety = false;
 bool extentionArmKlikniety = false;
 
-
+void stopkuj()
+{
+	
+}
 task main()
 {
 		float moznikPrzyspieszenia=1;
@@ -76,13 +79,13 @@ task main()
 						}
 						else if (stopkaKlikniety)
 						{
-						stopkaKlikniety=fasle;	// jak ta to opusc
+						stopkaKlikniety=fasle;	// jak tak to opusc
 						}
 				}		  
 				
-					if(stopkaKlikniety) //wyko
+					if(stopkaKlikniety) //wykonaj komende
 				{
-					
+					stopkuj();
 				}		  
 }
 
