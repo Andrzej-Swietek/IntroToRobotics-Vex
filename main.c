@@ -12,10 +12,7 @@
 bool stopkaKlikniety = false;
 bool extentionArmKlikniety = false;
 
-void stopkuj()
-{
-	
-}
+
 task main()
 {
 		float moznikPrzyspieszenia=1;
@@ -67,11 +64,11 @@ task main()
 						motor[motorCLAW]=-90;
 				  }
 				  else{motor[motorCLAW]=0;}
-				  
-				  
-				  
+
+
+
 				  //stopka true/false
-			if(VexRT[Btn7D]==1)
+	if(VexRT[Btn7D]==1)
 				{
 					if(!stopkaKlikniety)//jesli nie podniesione to podnies
 						{
@@ -79,14 +76,14 @@ task main()
 						}
 						else if (stopkaKlikniety)
 						{
-						stopkaKlikniety=fasle;	// jak tak to opusc
+						stopkaKlikniety=false;	// jak ta to opusc
 						}
-				}		  
-				
-					if(stopkaKlikniety) //wykonaj komende
-				{
-					stopkuj();
-				}		  
+				}
+
+					if(stopkaKlikniety) //wykonaj komende positive direction
+					{
+
+					}
 }
 
 
