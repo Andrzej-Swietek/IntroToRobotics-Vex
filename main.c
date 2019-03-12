@@ -68,7 +68,7 @@ task main()
 
 
 				  //stopka true/false
-	if(VexRT[Btn7D]==1)
+		if(VexRT[Btn7D]==1)
 				{
 					if(!stopkaKlikniety)//jesli nie podniesione to podnies
 						{
