@@ -11,3 +11,8 @@ _____________________________________________________________
 
 About me: 
 http://swietek.pl
+
+_____________________________________________________________
+
+Listed commands
+http://cdn.robotc.net/pdfs/natural-language/NL_Cortex_Quick.pdf
