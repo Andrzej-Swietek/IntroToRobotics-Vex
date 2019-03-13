@@ -126,4 +126,4 @@ footDown();
 
 
 
-}// finish of the program
+}// The end of the program
