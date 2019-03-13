@@ -18,6 +18,38 @@
 bool stopkaKlikniety = false;
 bool extentionArmKlikniety = false;
 
+void footDown()
+{
+					while(vexRT[Btn5U]==1) //wykonaj komende positive direction
+					{
+							motor[motorFOOT]=90;
+							if (vexRT[Btn5U]==0){break;}
+					}
+					while(vexRT[Btn5U]==0) 
+					{
+							motor[motorFOOT]=0;
+							if (vexRT[Btn5U]==1){break;}
+					}
+}
+
+
+
+void footUp()
+{
+			while(vexRT[Btn5D]==1) //wykonaj komende negative direction
+					{
+							motor[motorFOOT]=-90;
+							if (vexRT[Btn5D]==0){break;}
+					}
+					while(vexRT[Btn5D]==0) //nie wykonuj nic
+					{
+							motor[motorFOOT]=0;
+							if (vexRT[Btn5D]==0){break;}
+					}
+}
+
+
+
 
 task main()
 {
@@ -72,20 +104,17 @@ task main()
 				  else{motor[motorCLAW]=0;}
 
 
-//to 1 button na opuszczanie i drugi na podnoszenie
-				  //stopka true/false
-			i
-	
-					while(VexRT[Btn6U]==1) //wykonaj komende positive direction
-					{
-						
-							motor[motorFOOT]=90;
-					}
-					
-					
-					
+footUp();
+footDown();
 			
-					
+			
+
+			
+
+			
+
+
+
 }//loop
 
 
