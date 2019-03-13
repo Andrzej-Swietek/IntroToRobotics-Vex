@@ -80,7 +80,7 @@ task main()
 {
 	
   	motor[motorLEFT]=vexRT[Ch2];//tylko lewy ale do innego programu
-  	motor[motorRIGHT]=vexRT[Ch3];//tylko prawya ale do innego prigramu tu nie przeszkadza
+  	motor[motorRIGHT]=vexRT[Ch3];//tylko prawya ale do innego programu tu nie przeszkadza
 	while(true)
 	{
 //Przyspieszenie
