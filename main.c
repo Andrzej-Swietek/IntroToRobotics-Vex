@@ -19,7 +19,8 @@ enum constants{
 	EXTENTION_ARM_ENCODER_TICKS = 0,
 	TIME_GRIPPER = 0,
 	REV_TIME_SHOOTER = 0,
-	CATCH_BACK_TIME = 0
+	CATCH_BACK_TIME = 0,
+	ARM_HEIGHT_TIME = 0
 
 
 };
@@ -57,7 +58,23 @@ void footUp()
 					}
 }
 
+void moveARM()
+{
+		
+					if(vexRT[Btn7D]==1)
+				{	
+					motor[port3]=STANDART_SPEED;
+		 			}
 
+		  		else if(vexRT[Btn7D]==1)//blad
+					{
+						motor[port3]=-STANDART_SPEED;
+		  		}
+		  		else
+		  			{
+		  				motor[port3]=0;
+		  			}
+}
 
 void speedUp()
 {
@@ -95,18 +112,11 @@ speedUp();
 
 //ARM
 			if(vexRT[Btn7U]==1)
-					{
-					motor[port3]=STANDART_SPEED;
-		 			}
-
-		  		else if(vexRT[Btn7D]==1)
-					{
-						motor[port3]=-STANDART_SPEED;
-		  		}
-		  		else
-		  			{
-		  				motor[port3]=0;
-		  			}
+			{
+				moveARM();
+				wait1Msec(ARM_HEIGHT_TIME);
+			}	
+				
 
 //CLAW
 			if(vexRT[Btn7L]==1)
