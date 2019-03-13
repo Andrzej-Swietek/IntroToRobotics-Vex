@@ -14,16 +14,20 @@
 #define MAXacc 2
 #define MINacc 0.5
 
-//footUP,FootDOWN, EXTEND, -EXTEND, 
+enum constants{
+	STANDART_SPEED = 90,
+
+
+};
 
 bool stopkaKlikniety = false;
 bool extentionArmKlikniety = false;
-	float moznikPrzyspieszenia=1;
+float moznikPrzyspieszenia=1;
 void footDown()
 {
 					while(vexRT[Btn5U]==1) //wykonaj komende positive direction
 					{
-							motor[motorFOOT]=90;
+							motor[motorFOOT]=STANDART_SPEED;
 							if (vexRT[Btn5U]==0){break;}
 					}
 					while(vexRT[Btn5U]==0) 
@@ -39,7 +43,7 @@ void footUp()
 {
 			while(vexRT[Btn5D]==1) //wykonaj komende negative direction
 					{
-							motor[motorFOOT]=-90;
+							motor[motorFOOT]=-STANDART_SPEED;
 							if (vexRT[Btn5D]==0){break;}
 					}
 					while(vexRT[Btn5D]==0) //nie wykonuj nic
@@ -88,12 +92,12 @@ speedUp();
 
 			if(vexRT[Btn7U]==1)
 					{
-					motor[port3]=90;
+					motor[port3]=STANDART_SPEED;
 		 			}
 
 		  		else if(vexRT[Btn7D]==1)
 					{
-						motor[port3]=-90;
+						motor[port3]=-STANDART_SPEED;
 		  		}
 		  		else
 		  			{
@@ -103,12 +107,12 @@ speedUp();
 
 			if(vexRT[Btn7L]==1)
 					{
-						motor[motorCLAW]=90;
+						motor[motorCLAW]=STANDART_SPEED;
 				  }
 
 				  else if(vexRT[Btn7R]==1)
 					{
-						motor[motorCLAW]=-90;
+						motor[motorCLAW]=-STANDART_SPEED;
 				  }
 				  else{motor[motorCLAW]=0;}
 
