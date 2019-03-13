@@ -80,7 +80,7 @@ task main()
 {
 	
   	motor[motorLEFT]=vexRT[Ch2];//tylko lewy ale do innego programu
-  	motor[motorRIGHT]=vexRT[Ch3];//tylko prawya ale do innego programu tu nie przeszkadza
+  	motor[motorRIGHT]=vexRT[Ch3];//tylko prawya ale do innego prigramu tu nie przeszkadza
 	while(true)
 	{
 //Przyspieszenie
@@ -93,7 +93,7 @@ speedUp();
 						motor[motorRIGHT]=prawy*moznikPrzyspieszenia;
 
 
-
+//ARM
 			if(vexRT[Btn7U]==1)
 					{
 					motor[port3]=STANDART_SPEED;
@@ -108,7 +108,7 @@ speedUp();
 		  				motor[port3]=0;
 		  			}
 
-
+//CLAW
 			if(vexRT[Btn7L]==1)
 					{
 						motor[motorCLAW]=STANDART_SPEED;
