@@ -40,9 +40,9 @@ void extend()
 
 void DEextend()
 {
-	while(SensorValue[dgtl1]< -EXTENTION_ARM_ENCODER_TICKS)
+	while(SensorValue[dgtl1] < -EXTENTION_ARM_ENCODER_TICKS)
 	{
-		motor[motorEXTENTION]=-STANDART_SPEED;
+		motor[motorEXTENTION] = -STANDART_SPEED;
 	}
 }
 void footDown()
@@ -78,7 +78,7 @@ void footUp()
 void moveARM()
 {
 		
-					if(vexRT[Btn7D]==1)
+					if(vexRT[Btn7U]==1)
 				{	
 					motor[port3]=STANDART_SPEED;
 		 			}
@@ -118,9 +118,10 @@ task main()
 	while(true)
 	{
 //Przyspieszenie
-
+if(vexRT[Btn6U]==1 || vexRT[Btn6D]==1)
+{
 speedUp();
-
+}
 						int lewy=(getJoystickValue(Ch2) + getJoystickValue(Ch3))/2;
 						int prawy = (getJoystickValue(Ch2) - getJoystickValue(Ch3))/2;
 						motor[motorLEFT]=lewy*moznikPrzyspieszenia;
@@ -128,7 +129,7 @@ speedUp();
 
 
 //ARM
-			if(vexRT[Btn7U]==1)
+			if(vexRT[Btn7U]==1 || vexRT[Btn7D]==1)
 			{
 				moveARM();
 				wait1Msec(ARM_HEIGHT_TIME);
