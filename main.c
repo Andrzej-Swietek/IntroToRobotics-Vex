@@ -162,7 +162,7 @@ else if(vexRT[Btn8D]==1)
 }
 else
 {
-	continue
+	continue;
 }
 			
 
