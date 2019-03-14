@@ -38,7 +38,7 @@ void extend()
 	}
 }
 
-void DEextend()
+void retract()
 {
 	while(SensorValue[dgtl1] < -EXTENTION_ARM_ENCODER_TICKS)
 	{
@@ -63,7 +63,7 @@ void footDown()
 
 void footUp()
 {
-			while(vexRT[Btn5D]==1) //wykonaj komende negative direction
+					while(vexRT[Btn5D]==1) //wykonaj komende negative direction
 					{
 							motor[motorFOOT]=-STANDART_SPEED;
 							if (vexRT[Btn5D]==0){break;}
@@ -113,58 +113,67 @@ void speedUp()
 task main()
 {
 	
-  	motor[motorLEFT]=vexRT[Ch2];//tylko lewy ale do innego programu
-  	motor[motorRIGHT]=vexRT[Ch3];//tylko prawya ale do innego prigramu tu nie przeszkadza
+  			motor[motorLEFT]=vexRT[Ch2];//tylko lewy ale do innego programu
+  			motor[motorRIGHT]=vexRT[Ch3];//tylko prawya ale do innego prigramu tu nie przeszkadza
 	while(true)
 	{
 //Przyspieszenie
-if(vexRT[Btn6U]==1 || vexRT[Btn6D]==1)
-{
-speedUp();
-}
-						int lewy=(getJoystickValue(Ch2) + getJoystickValue(Ch3))/2;
-						int prawy = (getJoystickValue(Ch2) - getJoystickValue(Ch3))/2;
-						motor[motorLEFT]=lewy*moznikPrzyspieszenia;
-						motor[motorRIGHT]=prawy*moznikPrzyspieszenia;
+	if(vexRT[Btn6U]==1 || vexRT[Btn6D]==1)
+	{
+		speedUp();
+	}
+			int lewy=(getJoystickValue(Ch2) + getJoystickValue(Ch3))/2;
+			int prawy = (getJoystickValue(Ch2) - getJoystickValue(Ch3))/2;
+			motor[motorLEFT]=lewy*moznikPrzyspieszenia;
+			motor[motorRIGHT]=prawy*moznikPrzyspieszenia;
 
 
 //ARM
-			if(vexRT[Btn7U]==1 || vexRT[Btn7D]==1)
-			{
-				moveARM();
-				wait1Msec(ARM_HEIGHT_TIME);
-			}	
+	if(vexRT[Btn7U]==1 || vexRT[Btn7D]==1)
+	{
+		moveARM();
+		wait1Msec(ARM_HEIGHT_TIME);
+	}	
 				
 
 //CLAW
-			if(vexRT[Btn7L]==1)
-					{
-						motor[motorCLAW]=STANDART_SPEED;
-				  }
+	if(vexRT[Btn7L]==1)
+	{
+		motor[motorCLAW]=STANDART_SPEED;
+	}
 
-				  else if(vexRT[Btn7R]==1)
-					{
-						motor[motorCLAW]=-STANDART_SPEED;
-				  }
-				  else{motor[motorCLAW]=0;}
-
-
-footUp();
-footDown();
-			
-			
-if(vexRT[Btn8R]==1)
-{
-	extend();	
-}
-else if(vexRT[Btn8D]==1)
-{
-	DEextend();	
-}
-else
-{
-	continue;
-}
+		else if(vexRT[Btn7R]==1)
+		{
+			motor[motorCLAW]=-STANDART_SPEED;
+		}
+		else
+		{
+			motor[motorCLAW]=0;
+		}
+//stopka do gory
+	if(vexRT[Btn5D]==1)
+	{
+		footUp();
+	}
+//stopka w dol		
+	if(vexRT[Btn5U]==1)
+	{	
+		footDown();
+	}		
+//wydluz ramie			
+	if(vexRT[Btn8R]==1)
+	{
+		extend();	
+	}
+//skroc ramie		
+	else if(vexRT[Btn8D]==1)
+	{
+		retract();	
+	}
+// 	else
+// 	{
+// 		continue;
+// 	}
 			
 
 			
