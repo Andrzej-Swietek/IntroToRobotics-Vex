@@ -78,32 +78,32 @@ void footUp()
 void moveARM()
 {
 		
-					if(vexRT[Btn7U]==1)
-				{	
+				if(vexRT[Btn7U]==1)
+				{
 					motor[port3]=STANDART_SPEED;
-		 			}
+		 		}
 
 		  		else if(vexRT[Btn7D]==1)//blad
-					{
-						motor[port3]=-STANDART_SPEED;
+				{
+					motor[port3]=-STANDART_SPEED;
 		  		}
 		  		else
-		  			{
-		  				motor[port3]=0;
-		  			}
+		  		{
+		  			motor[port3]=0;
+		  		}
 }
 
 void speedUp()
 {
 				if(vexRT[Btn6U]==1)
-					{
-						moznikPrzyspieszenia=MAXacc;
-				  }
+				{
+					moznikPrzyspieszenia=MAXacc;
+				}
 
 				  else if(vexRT[Btn6D]==1)
-					{
-						moznikPrzyspieszenia=MINacc;
-				  }
+				{
+					moznikPrzyspieszenia=MINacc;
+				}
 				else
 				  {
 				  	moznikPrzyspieszenia=1;
