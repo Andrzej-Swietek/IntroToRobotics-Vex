@@ -6,59 +6,56 @@
 
 /*------------------------------ For Peyton -----------------------------*/
 
+void drivetrain()
+{
+	int left=(getJoystickValue(Ch2) + getJoystickValue(Ch3))/2;
+	int right = (getJoystickValue(Ch2) - getJoystickValue(Ch3))/2;
+	motor[motorLEFT]=left*acceleration;
+	motor[motorRIGHT]=right*acceleration;	
+}
 
-
-
-
+short speedValue = 90;
 
 task main()
 {
-		float moznikPrzyspieszenia=1;
-  	motor[motorLEFT]=vexRT[Ch2];//tylko lewy ale do innego programu
-  	motor[motorRIGHT]=vexRT[Ch3];//tylko prawya ale do innego prigramu tu nie przeszkadza
+	float acceleration=1;
+	//setting joystic
+  	motor[motorLEFT]=vexRT[Ch2];
+  	motor[motorRIGHT]=vexRT[Ch3];
 	while(true)
 	{
-//Przyspieszenie
+//Acceleration
 			if(vexRT[Btn6U]==1)
-					{
-						moznikPrzyspieszenia=2;
-				  }
-
-				  else if(vexRT[Btn6D]==1)
-					{
-						moznikPrzyspieszenia=0.5;
-				  }
-				  else{moznikPrzyspieszenia=1;}
-
-						int lewy=(getJoystickValue(Ch2) + getJoystickValue(Ch3))/2;
-						int prawy = (getJoystickValue(Ch2) - getJoystickValue(Ch3))/2;
-						motor[motorLEFT]=lewy*moznikPrzyspieszenia;
-						motor[motorRIGHT]=prawy*moznikPrzyspieszenia;
-
-
-
+			{
+				acceleration=2;
+			}
+			else if(vexRT[Btn6D]==1)
+			{
+				acceleration=0.5;
+			}
+			else
+			{
+				acceleration=1;
+			}
+//Getting Joystic Values and Drivetrain
+				drivetrain();		
+//Moving Arm
 			if(vexRT[Btn7U]==1)
-				{
-					motor[port3]=90;
-		 		}
+			{
+				motor[port3]=speedValue*acceleration;
+		 	}
 
-		  else if(vexRT[Btn7D]==1)
-				{
-					motor[port3]=-90;
+		  	else if(vexRT[Btn7D]==1)
+			{
+				motor[port3]=-speedValue*acceleration;
 		  	}
-		  else{motor[port3]=0;}
+		 	else
+			{
+				motor[port3]=0;
+			}
 
 
-			if(vexRT[Btn7L]==1)
-					{
-						motor[motorCLAW]=90;
-				  }
-
-				  else if(vexRT[Btn7R]==1)
-					{
-						motor[motorCLAW]=-90;
-				  }
-				  else{motor[motorCLAW]=0;}
+			
 }
 
 
